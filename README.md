@@ -1,0 +1,1 @@
+# Minkasu2FA_SampleApp
