@@ -158,7 +158,8 @@ public class AuthPayFragment extends Fragment {
             customer.setAddress(address);
 
             //Create the Config object with merchant_id, merchant_access_token, merchant_customer_id and customer object.
-            Config config = Config.getInstance(<merchant_id>,<merchant_access_token>,<merchant_customer_id>,customer);
+            //merchant_customer_id is a unique id associated with the currently logged in user.
+            Config config = Config.getInstance(<merchant_id>,<merchant_access_token>,MainActivity.MERCHANT_CUSTOMER_ID,customer);
 
             //set up SDK mode ie. by default its always production if we dont set it
             config.setSDKMode(Config.SANDBOX_MODE);

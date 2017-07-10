@@ -188,6 +188,7 @@ public class MainActivity extends AppCompatActivity
     public void performMKSDKAction (MinkasuOperationType operationType){
         Minkasu2faSDK minkasu2faSDKInstance = null;
         try {
+            //Creating Minkasu 2FA SDK object to perform the selected menu action.
             minkasu2faSDKInstance = Minkasu2faSDK.create(MainActivity.this, operationType,MERCHANT_CUSTOMER_ID);
             minkasu2faSDKInstance.start();
         }
