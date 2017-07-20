@@ -164,30 +164,6 @@ public class AuthPayFragment extends Fragment {
             //set up SDK mode ie. by default its always production if we dont set it
             config.setSDKMode(Config.SANDBOX_MODE);
 
-            //Create the current Order Info.
-            OrderInfo orderInfo = new OrderInfo();
-            orderInfo.setOrderId("Ord01_"+Math.random());
-            orderInfo.setBillingAddress(address);
-            orderInfo.setShippingAddress(address);
-
-            OrderItem item1 = new OrderItem();
-            item1.setAmount(120.00);
-            item1.setDescription("Phone Cover");
-            item1.setQuantity(1);
-            item1.setSkuId("sku342");
-            OrderItem item2 = new OrderItem();
-            item2.setAmount(126.00);
-            item2.setDescription("Nexus Phone");
-            item2.setQuantity(1);
-            item2.setSkuId("sku300");
-
-            List<OrderItem> orderItemList = new ArrayList<>();
-            orderItemList.add(item1);
-            orderItemList.add(item2);
-            orderInfo.setOrderItemList(orderItemList);
-
-            config.setOrderInfo(orderInfo);
-
             //Initialize Minkasu 2FA SDK with the Config object and the Webview.
             Minkasu2faSDK.init(getActivity(),config,mWebView);
         }

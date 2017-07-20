@@ -38,5 +38,5 @@ dependencies {
     compile('com.google.code.gson:gson:2.6.2') {
         transitive = true
     }
-    compile 'com.minkasu.android.twofa:minkasu-2fa:1.0.4'
+    compile 'com.minkasu.android.twofa:minkasu-2fa:1.0.5'
 }
