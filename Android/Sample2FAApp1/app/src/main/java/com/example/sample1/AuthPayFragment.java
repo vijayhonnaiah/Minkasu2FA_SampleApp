@@ -47,7 +47,8 @@ public class AuthPayFragment extends Fragment {
     private SharedPreferences mSharedPreferences;
 
     public void loadUrl(String url) {
-        String host = "http://sandbox.minkasupay.com";
+        String host = "https://sandbox.minkasupay.com";      // Sandbox Mode
+        // String host = "https://transactions.minkasupay.com"; // Production Mode
 
         mNetPayButton.setVisibility(View.GONE);
         mCreditPayButton.setVisibility(View.GONE);
