@@ -24,7 +24,6 @@ import com.minkasu.android.twofa.model.Config;
 import com.minkasu.android.twofa.model.Address;
 import com.minkasu.android.twofa.model.CustomerInfo;
 import com.minkasu.android.twofa.model.OrderInfo;
-import com.minkasu.android.twofa.model.OrderItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -164,6 +163,10 @@ public class AuthPayFragment extends Fragment {
 
             //set up SDK mode ie. by default its always production if we dont set it
             config.setSDKMode(Config.SANDBOX_MODE);
+
+            OrderInfo orderInfo = new OrderInfo();
+            orderInfo.setOrderId("Ord01_"+Math.random());
+            config.setOrderInfo(orderInfo);
 
             //Initialize Minkasu 2FA SDK with the Config object and the Webview.
             Minkasu2faSDK.init(getActivity(),config,mWebView);
