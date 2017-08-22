@@ -10,13 +10,25 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    signingConfigs {
+        release {
+            storeFile file("/Users/admin/Android/sampleappkeystore.jks")
+            storePassword '000000'
+            keyAlias "sample"
+            keyPassword '000000'
+        }
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            signingConfig signingConfigs.release
         }
     }
+
 }
 
 repositories {
@@ -38,5 +50,5 @@ dependencies {
     compile('com.google.code.gson:gson:2.6.2') {
         transitive = true
     }
-    compile 'com.minkasu.android.twofa:minkasu-2fa:1.0.5'
+    compile 'com.minkasu.android.twofa:minkasu-2fa:1.0.6'
 }

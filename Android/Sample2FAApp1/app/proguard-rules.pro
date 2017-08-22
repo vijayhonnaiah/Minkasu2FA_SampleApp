@@ -15,3 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keep class com.google.gson.** { *; }
+-keepclassmembers enum * { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
