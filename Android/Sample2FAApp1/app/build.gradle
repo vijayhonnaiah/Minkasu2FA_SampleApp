@@ -12,20 +12,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
-    signingConfigs {
-        release {
-            storeFile file("/Users/admin/Android/sampleappkeystore.jks")
-            storePassword '000000'
-            keyAlias "sample"
-            keyPassword '000000'
-        }
-    }
+
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            signingConfig signingConfigs.release
         }
     }
 
