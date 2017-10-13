@@ -13,11 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.minkasu.android.twofa.sdk.Minkasu2faSDK;
 import com.minkasu.android.twofa.model.Config;
@@ -99,15 +101,24 @@ public class AuthPayFragment extends Fragment {
         llActions = (LinearLayout) inflatedView.findViewById(R.id.llActions);
         mWebView.setWebViewClient(new WebViewClient());        // to handle clicks within WebView
         mWebView.setWebChromeClient(new WebChromeClient());    // to show javascript alerts
-
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
         //Loading Bank Login URL manually for testing purposes. Payment Gateway loads URL on the webview in live.
         //Net Banking Flow
         if (mNetPayButton != null) {
             mNetPayButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    initMinkasu2FASDK();
+                    if (!Minkasu2faSDK.isRooted()) {
+                        initMinkasu2FASDK();
+
+                    }else{
+                        Toast.makeText(getActivity(), "Device is Rooted"
+                                , Toast.LENGTH_LONG).show();
+                    }
                     loadUrl("/demo/Bank_Internet_Banking_login.htm");
+
                 }
             });
         }
@@ -117,8 +128,15 @@ public class AuthPayFragment extends Fragment {
             mCreditPayButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    initMinkasu2FASDK();
-                    loadUrl("/demo/Welcome_to_Net.html?minkasu2FA=true");
+                    if (!Minkasu2faSDK.isRooted()) {
+                        initMinkasu2FASDK();
+                        loadUrl("/demo/Welcome_to_Net.html?minkasu2FA=true");
+                    }else{
+                        Toast.makeText(getActivity(), "Device is Rooted"
+                                , Toast.LENGTH_LONG).show();
+                        loadUrl("/demo/Welcome_to_Net.html");
+                    }
+
                 }
             });
         }
