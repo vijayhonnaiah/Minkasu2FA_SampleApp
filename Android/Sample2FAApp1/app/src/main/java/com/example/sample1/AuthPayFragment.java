@@ -190,7 +190,7 @@ public class AuthPayFragment extends Fragment {
             Minkasu2faSDK.init(getActivity(),config,mWebView);
         }
         catch(Exception e){
-            e.printStackTrace();
+            e.toString();
 
         }
     }
