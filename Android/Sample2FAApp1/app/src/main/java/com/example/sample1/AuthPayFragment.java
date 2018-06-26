@@ -45,7 +45,6 @@ public class AuthPayFragment extends Fragment {
     private WebView mWebView;
     private EditText mCustomerPhone;
     private LinearLayout llActions;
-    private SharedPreferences mSharedPreferences;
 
     public void loadUrl(String url) {
         String host = "https://sandbox.minkasupay.com";      // Sandbox Mode
@@ -93,7 +92,7 @@ public class AuthPayFragment extends Fragment {
         // Inflate the layout for this fragment
         View inflatedView = inflater.inflate(R.layout.fragment_auth_pay, container, false);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
         mWebView = (WebView) inflatedView.findViewById(R.id.webview);
         mNetPayButton = (Button) inflatedView.findViewById(R.id.pay_net_button);
         mCreditPayButton = (Button) inflatedView.findViewById(R.id.pay_credit_button);

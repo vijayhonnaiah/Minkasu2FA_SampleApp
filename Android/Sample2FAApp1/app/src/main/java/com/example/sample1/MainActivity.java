@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_reset) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             preferences.edit().clear().commit();
-            preferences.edit().putBoolean("reset",true).commit();
+            preferences.edit().putBoolean("minkasu2fa_reset",true).commit();
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
