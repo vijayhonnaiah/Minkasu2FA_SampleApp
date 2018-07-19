@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+        //Remove the google respository for Android Studio less than version 3
         google()
     }
     dependencies {
@@ -16,6 +17,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        //Remove the google respository for Android Studio less than version 3+
         google()
     }
 }
