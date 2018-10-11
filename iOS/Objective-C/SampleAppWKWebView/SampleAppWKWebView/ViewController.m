@@ -84,8 +84,8 @@
     //set the color theme to nil if you want use the minkasu2fa default color scheme
     //config.mk2faColorTheme = nil;
     
-    //set sdkmode to SANDBOX_MODE if testing on sandbox
-    //config.sdkmode = SANDBOX_MODE;
+    //set sandboxMode to true if testing on sandbox
+    //config.sandboxMode = true;
     
     //Initializing Minkasu2FA SDK with WKWebView object
     [Minkasu2FA initWithWKWebView:_wkWebView andConfiguration:config];
