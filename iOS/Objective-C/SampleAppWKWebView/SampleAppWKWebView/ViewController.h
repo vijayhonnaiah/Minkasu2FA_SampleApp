@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-#import <Minkasu2FA/Minkasu2FAHeader.h>
 
 @interface ViewController : UIViewController<WKUIDelegate, NSURLConnectionDataDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnNetBanking;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreditDebit;
 @property ( nonatomic)  WKWebView *wkWebView;
-@property (nonatomic) Minkasu2FA *minkasu2fa;
 
 - (IBAction)clickNetBanking:(id)sender;
 - (IBAction)clickCreditDebit:(id)sender;

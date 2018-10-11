@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <Minkasu2FA/Minkasu2FAHeader.h>
 
 @interface ViewController ()
 
@@ -63,7 +64,7 @@
     //Create the Config object with merchant_id, merchant_access_token, merchant_customer_id and customer object.
     //merchant_customer_id is a unique id associated with the currently logged in user.
     Minkasu2FAConfig *config = [Minkasu2FAConfig new];
-    config.merchantId = <merchant_id>";
+    config.merchantId = <merchant_id>;
     config.merchantToken = <merchant_access_token>;
     config.merchantCustomerId =<merchant_customer_id>;
     //add customer to the Config object
@@ -86,9 +87,7 @@
     //set sdkmode to SANDBOX_MODE if testing on sandbox
     //config.sdkmode = SANDBOX_MODE;
     
-    _minkasu2fa = [[Minkasu2FA alloc] init];
-    
-    //Initializing WKWebView
+    //Initializing Minkasu2FA SDK with WKWebView object
     [Minkasu2FA initWithWKWebView:_wkWebView andConfiguration:config];
     [self.view addSubview:_wkWebView];
 }
@@ -96,15 +95,17 @@
 
 
 - (IBAction)clickNetBanking:(id)sender {
+    //Initializing Minkasu2FA SDK before initating Payment
     [self initMinkasu2FA];
-    NSURL *nsurl=[NSURL URLWithString:@"https://dev.minkasupay.com/demo/Bank_Internet_Banking_login.htm"];
+    NSURL *nsurl=[NSURL URLWithString:@"https://sandbox.minkasupay.com/demo/Bank_Internet_Banking_login.htm"];
     NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
     [_wkWebView loadRequest:nsrequest];
 }
 
 - (IBAction)clickCreditDebit:(id)sender {
+    //Initializing Minkasu2FA SDK before initating Payment
     [self initMinkasu2FA];
-    NSURL *nsurl=[NSURL URLWithString:@"https://dev.minkasupay.com/demo/Welcome_to_Net.html?minkasu2FA=true"];
+    NSURL *nsurl=[NSURL URLWithString:@"https://sandbox.minkasupay.com/demo/Welcome_to_Net.html?minkasu2FA=true"];
     NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
     [_wkWebView loadRequest:nsrequest];
 }

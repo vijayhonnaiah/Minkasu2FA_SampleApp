@@ -1,34 +1,49 @@
-//
-//  ViewController.m
-//  SampleAppUIWebView
-//
-//  Created by Praveena Khanna on 10/9/18.
-//  Copyright © 2018 minkasu. All rights reserved.
-//
+# Minkasu2FA_iOS_SDK
 
-#import "ViewController.h"
-#import <Minkasu2FA/Minkasu2FAHeader.h>
+## Setup
 
-@interface ViewController ()
+- The minimum requirements for the SDK are:
+   - iOS 10.0 and higher
+   - Internet connection
+- The following architectures are supported in the SDK:
+   - armv7 and arm64 for devices
+   - i386 and x86_64 for iOS simulator
 
-@end
+## Integrations
 
-@implementation ViewController
+1. Open the iOS project in Xcode.
+2. Drop Minkasu2FA.framework bundle under Embedded Binaries of the Project Settings
+4. Make sure 'Copy items if needed' is checked.
+3. Add NSFaceIDUsageDescription to Info.plist
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    //Initializing UIWebView
-    self.uiWebView = [[UIWebView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+150, self.view.frame.size.width, self.view.frame.size.height)];
-    _uiWebView.delegate = self;
+```xml
+<key>NSFaceIDUsageDescription</key>
+<string>Please allow AppName to use Face ID.</string>
+```
+
+## Initializing the SDK for UIWebView Based integration
+
+- Import ```<Minkasu2FA/Minkasu2FAHeader.h>``` in the ViewController that holds the UIWebView and AppDelegate.m of the project.
+- Add ```[Minkasu2FA registerMinkasu2FACustomUserAgent];``` to the following method in AppDelegate.m to add Minkas2FA Custom UserAgent to the WebView
+```Objective-C 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+
+    [Minkasu2FA registerMinkasu2FACustomUserAgent];
+    
+    return YES;
 }
+``` 
+- Initialize the UIWebView object.
+- Add following code to your ViewController to inialize Minkasu2FA SDK with the UIWebView object. The following code must be executed before making a payment to enable Minkasu 2FA.
 
-//****START Minkasu2FA Code***************
+```Objective-C
 - (void) initMinkasu2FA{
-    //initialize Customer object
+    //initialize Minkasu2FA Customer object
     Minkasu2FACustomerInfo *customer = [Minkasu2FACustomerInfo new];
     customer.firstName = @"TestCustomer";
     customer.lastName = @"TestLastName";
-    customer.email = @"test@minkasupay.com";
+    customer.email = @"test@asd.com";
     customer.phone = @"+919876543210";
     
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
@@ -68,28 +83,24 @@
     
     //Initializing Minkasu2FA SDK with UIWebView object
     [Minkasu2FA initWithUIWebView:_uiWebView andConfiguration:config];
-    [self.view addSubview:_uiWebView];
 }
-//****END Minkasu2FA Code***************
+``` 
 
+- Make sure that your merchant_access_token and merchant_id are correct.
+- merchant_customer_id is a unique id associated with the currently logged in user
+- Make the ViewController the delegate for the UIWebView object
+
+```Objective-C
+_uiWebView.delegate = self;
+```
+
+- Implement UIWebViewDelegate method shown below and add the following code.
+
+```Objective-C
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     //Return YES or NO based on wether the request is a Minkasu 2FA Bridge Function
     return ![Minkasu2FA request:request shouldHandleByMinkasu2FAInWebView:webView navigationType:navigationType];
 }
+```
 
-- (IBAction)clickNetBanking:(id)sender {
-    //Initializing Minkasu2FA SDK before initating Payment
-    [self initMinkasu2FA];
-    NSURL *nsurl=[NSURL URLWithString:@"https://sandbox.minkasupay.com/demo/Bank_Internet_Banking_login.htm"];
-    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
-    [_uiWebView loadRequest:nsrequest];
-}
-
-- (IBAction)clickCreditDebit:(id)sender {
-    //Initializing Minkasu2FA SDK before initating Payment
-    [self initMinkasu2FA];
-    NSURL *nsurl=[NSURL URLWithString:@"https://sandbox.minkasupay.com/demo/Welcome_to_Net.html?minkasu2FA=true"];
-    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
-    [_uiWebView loadRequest:nsrequest];
-}
-@end
+- Initialize the SDK by calling ```[self initMinkasu2FA];``` before the Payment is initiated.
