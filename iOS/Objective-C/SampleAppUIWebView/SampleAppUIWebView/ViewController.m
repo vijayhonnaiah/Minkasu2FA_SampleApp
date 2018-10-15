@@ -20,20 +20,21 @@
     //Initializing UIWebView
     self.uiWebView = [[UIWebView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+150, self.view.frame.size.width, self.view.frame.size.height)];
     _uiWebView.delegate = self;
+    [self.view addSubview:_uiWebView];
 }
 
 //****START Minkasu2FA Code***************
 - (void) initMinkasu2FA{
     //initialize Customer object
     Minkasu2FACustomerInfo *customer = [Minkasu2FACustomerInfo new];
-    customer.firstName = @"TestCustomer";
+    customer.firstName = @"TestFirstName";
     customer.lastName = @"TestLastName";
     customer.email = @"test@minkasupay.com";
     customer.phone = @"+919876543210";
     
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
     address.line1 = @"123 Test way";
-    address.line2 = @"Test Soc";
+    address.line2 = @"Test Apartments";
     address.city = @"Mumbai";
     address.state = @"Maharashtra";
     address.country= @"India";
@@ -60,15 +61,13 @@
     mkcolorTheme.buttonBackgroundColor = UIColor.blueColor;
     mkcolorTheme.buttonTextColor = UIColor.whiteColor;
     config.customTheme = mkcolorTheme;
-    //set the color theme to nil if you want use the minkasu2fa default color scheme
-    //config.mk2faColorTheme = nil;
     
     //set sdkMode to MINKASU2FA_SANDBOX_MODE if testing on sandbox
-    //config.sdkMode = MINKASU2FA_SANDBOX_MODE;
+    config.sdkMode = MINKASU2FA_SANDBOX_MODE;
     
     //Initializing Minkasu2FA SDK with UIWebView object
     [Minkasu2FA initWithUIWebView:_uiWebView andConfiguration:config];
-    [self.view addSubview:_uiWebView];
+    
 }
 //****END Minkasu2FA Code***************
 

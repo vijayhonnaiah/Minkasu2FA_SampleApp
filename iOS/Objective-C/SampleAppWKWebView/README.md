@@ -31,20 +31,20 @@
 - (void) initMinkasu2FA{
     //initialize Minkasu2FA Customer object
     Minkasu2FACustomerInfo *customer = [Minkasu2FACustomerInfo new];
-    customer.firstName = @"TestCustomer";
+    customer.firstName = @"TestFirstName";
     customer.lastName = @"TestLastName";
     customer.email = @"test@asd.com";
     customer.phone = @"+919876543210";
-    
+
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
     address.line1 = @"123 Test way";
-    address.line2 = @"Test Soc";
+    address.line2 = @"Test Appartments";
     address.city = @"Mumbai";
     address.state = @"Maharashtra";
     address.country= @"India";
     address.zipCode = @"400068";
     customer.address = address;
-    
+
     //Create the Config object with merchant_id, merchant_access_token, merchant_customer_id and customer object.
     //merchant_customer_id is a unique id associated with the currently logged in user.
     Minkasu2FAConfig *config = [Minkasu2FAConfig new];
@@ -53,11 +53,11 @@
     config.merchantCustomerId =<merchant_customer_id>;
     //add customer to the Config object
     config.customerInfo = customer;
-    
+
     Minkasu2FAOrderInfo *orderInfo = [Minkasu2FAOrderInfo new];
     orderInfo.orderId = <order_id>;
     config.orderInfo = orderInfo;
-    
+
     //Use this to set custom color theme
     Minkasu2FACustomTheme *mkcolorTheme = [Minkasu2FACustomTheme new];
     mkcolorTheme.navigationBarColor = UIColor.blueColor;
@@ -65,16 +65,14 @@
     mkcolorTheme.buttonBackgroundColor = UIColor.blueColor;
     mkcolorTheme.buttonTextColor = UIColor.whiteColor;
     config.customTheme = mkcolorTheme;
-    //set the color theme to nil if you want use the minkasu2fa default color scheme
-    //config.mk2faColorTheme = nil;
-    
+
     //set sdkMode to MINKASU2FA_SANDBOX_MODE if testing on sandbox
-    //config.sdkMode = MINKASU2FA_SANDBOX_MODE;
-    
+    config.sdkMode = MINKASU2FA_SANDBOX_MODE;
+
     //Initializing Minkasu2FA SDK with WKWebView object
     [Minkasu2FA initWithWKWebView:_wkWebView andConfiguration:config];
 }
-``` 
+```
 
 - Make sure that your merchant_access_token and merchant_id are correct.
 - merchant_customer_id is a unique id associated with the currently logged in user

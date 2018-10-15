@@ -19,10 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //****START Minkasu@FA Code***************
+    //****START Minkasu2FA Code***************
     //add this only for UIWebView
     [Minkasu2FA registerMinkasu2FACustomUserAgent];
-    //****END Minkasu@FA Code***************
+    //****END Minkasu2FA Code***************
     
     return YES;
 }
