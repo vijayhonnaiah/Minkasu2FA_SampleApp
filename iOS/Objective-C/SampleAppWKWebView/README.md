@@ -38,7 +38,7 @@
 
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
     address.line1 = @"123 Test way";
-    address.line2 = @"Test Appartments";
+    address.line2 = @"Test Apartments";
     address.city = @"Mumbai";
     address.state = @"Maharashtra";
     address.country= @"India";

@@ -25,15 +25,15 @@
 
 - Import ```<Minkasu2FA/Minkasu2FAHeader.h>``` in the ViewController that holds the UIWebView and AppDelegate.m of the project.
 - Add ```[Minkasu2FA registerMinkasu2FACustomUserAgent];``` to the following method in AppDelegate.m to add Minkas2FA Custom UserAgent to the WebView
-```Objective-C 
+```Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
     [Minkasu2FA registerMinkasu2FACustomUserAgent];
-    
+
     return YES;
 }
-``` 
+```
 - Initialize the UIWebView object.
 - Add following code to your ViewController to inialize Minkasu2FA SDK with the UIWebView object. The following code must be executed before making a payment to enable Minkasu 2FA.
 
@@ -45,16 +45,16 @@
     customer.lastName = @"TestLastName";
     customer.email = @"test@asd.com";
     customer.phone = @"+919876543210";
-    
+
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
     address.line1 = @"123 Test way";
-    address.line2 = @"Test Appartments";
+    address.line2 = @"Test Apartments";
     address.city = @"Mumbai";
     address.state = @"Maharashtra";
     address.country= @"India";
     address.zipCode = @"400068";
     customer.address = address;
-    
+
     //Create the Config object with merchant_id, merchant_access_token, merchant_customer_id and customer object.
     //merchant_customer_id is a unique id associated with the currently logged in user.
     Minkasu2FAConfig *config = [Minkasu2FAConfig new];
@@ -63,11 +63,11 @@
     config.merchantCustomerId =<merchant_customer_id>;
     //add customer to the Config object
     config.customerInfo = customer;
-    
+
     Minkasu2FAOrderInfo *orderInfo = [Minkasu2FAOrderInfo new];
     orderInfo.orderId = <order_id>;
     config.orderInfo = orderInfo;
-    
+
     //Use this to set custom color theme
     Minkasu2FACustomTheme *mkcolorTheme = [Minkasu2FACustomTheme new];
     mkcolorTheme.navigationBarColor = UIColor.blueColor;
@@ -75,14 +75,14 @@
     mkcolorTheme.buttonBackgroundColor = UIColor.blueColor;
     mkcolorTheme.buttonTextColor = UIColor.whiteColor;
     config.customTheme = mkcolorTheme;
-        
+
     //set sdkMode to MINKASU2FA_SANDBOX_MODE if testing on sandbox
     config.sdkMode = MINKASU2FA_SANDBOX_MODE;
-    
+
     //Initializing Minkasu2FA SDK with UIWebView object
     [Minkasu2FA initWithUIWebView:_uiWebView andConfiguration:config];
 }
-``` 
+```
 
 - Make sure that your merchant_access_token and merchant_id are correct.
 - merchant_customer_id is a unique id associated with the currently logged in user
