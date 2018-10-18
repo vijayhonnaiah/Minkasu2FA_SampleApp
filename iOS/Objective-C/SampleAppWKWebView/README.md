@@ -27,7 +27,7 @@ Please ask Minkasu for Minkasu2FA SDK
 
 1. Open the iOS project in Xcode.
 2. Drop Minkasu2FA.framework bundle under Embedded Binaries of the Project Settings
-4. Make sure 'Copy items if needed' is checked.
+3. Make sure 'Copy items if needed' is checked.
 
 ### Project Setup
 
