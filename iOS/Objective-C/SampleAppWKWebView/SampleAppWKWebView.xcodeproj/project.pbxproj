@@ -14,23 +14,7 @@
 		AC7C2899216D917D000D562A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7C2898216D917D000D562A /* Assets.xcassets */; };
 		AC7C289C216D917D000D562A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7C289A216D917D000D562A /* LaunchScreen.storyboard */; };
 		AC7C289F216D917D000D562A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7C289E216D917D000D562A /* main.m */; };
-		AC7C28BA216D9EC7000D562A /* Minkasu2FA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7C28B9216D9EC7000D562A /* Minkasu2FA.framework */; };
-		AC7C28BB216D9EC7000D562A /* Minkasu2FA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC7C28B9216D9EC7000D562A /* Minkasu2FA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AC7C28BC216D9EC7000D562A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AC7C28BB216D9EC7000D562A /* Minkasu2FA.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AC7C2889216D917C000D562A /* SampleAppWKWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAppWKWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +28,6 @@
 		AC7C289B216D917D000D562A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC7C289D216D917D000D562A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7C289E216D917D000D562A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AC7C28B9216D9EC7000D562A /* Minkasu2FA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Minkasu2FA.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC7C28BA216D9EC7000D562A /* Minkasu2FA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +44,6 @@
 		AC7C2880216D917C000D562A = {
 			isa = PBXGroup;
 			children = (
-				AC7C28B9216D9EC7000D562A /* Minkasu2FA.framework */,
 				AC7C288B216D917C000D562A /* SampleAppWKWebView */,
 				AC7C288A216D917C000D562A /* Products */,
 			);
@@ -103,7 +84,6 @@
 				AC7C2885216D917C000D562A /* Sources */,
 				AC7C2886216D917C000D562A /* Frameworks */,
 				AC7C2887216D917C000D562A /* Resources */,
-				AC7C28BC216D9EC7000D562A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
