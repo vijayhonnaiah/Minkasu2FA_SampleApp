@@ -1,4 +1,4 @@
-# Minkasu2FA_iOS_SDK
+# Minkasu2FA iOS SDK
 
 ## Setup
 
