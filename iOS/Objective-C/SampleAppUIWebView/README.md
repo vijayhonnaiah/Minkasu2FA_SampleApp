@@ -1,4 +1,4 @@
-# Minkasu2FA_iOS_SDK
+# Minkasu2FA iOS SDK
 
 ## Setup
 
@@ -11,10 +11,27 @@
 
 ## Integrations
 
+### Getting the SDK
+
+#### Using Cocoapods (recommended)
+
+1. Navigate to iOS Xcode project directory in Terminal
+2. Run ```pod init``` to  create a Podfile.
+3. Add ```pod 'Minkasu2FA'``` to your Podfile. Please specify a particular pod version.
+4. Run ```pod install``` in Terminal.
+5. Close the Xcode project window if open, and open the Project Workspace.
+
+#### Manual way
+
+Please ask Minkasu for Minkasu2FA SDK
+
 1. Open the iOS project in Xcode.
 2. Drop Minkasu2FA.framework bundle under Embedded Binaries of the Project Settings
-4. Make sure 'Copy items if needed' is checked.
-3. Add NSFaceIDUsageDescription to Info.plist
+3. Make sure 'Copy items if needed' is checked.
+
+### Project Setup
+
+Add NSFaceIDUsageDescription to Info.plist
 
 ```xml
 <key>NSFaceIDUsageDescription</key>
