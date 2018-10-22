@@ -1,1 +1,0 @@
-../../../../Minkasu2FA/Minkasu2FA.framework/Headers/Minkasu2FACustomerInfo.h

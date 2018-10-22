@@ -17,7 +17,7 @@
 
 1. Navigate to iOS Xcode project directory in Terminal
 2. Run ```pod init``` to  create a Podfile.
-3. Add ```pod 'Minkasu2FA'``` to your Podfile. Please specify a particular pod version.
+3. Add ```pod 'Minkasu2FA'``` to your Podfile.
 4. Run ```pod install``` in Terminal.
 5. Close the Xcode project window if open, and open the Project Workspace.
 
