@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67AA7736BBDE87033499024E /* libPods-SampleAppUIWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 394C0CD2532CFE9417B24F34 /* libPods-SampleAppUIWebView.a */; };
 		AC7C2865216D846B000D562A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7C2864216D846B000D562A /* AppDelegate.m */; };
 		AC7C2868216D846B000D562A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7C2867216D846B000D562A /* ViewController.m */; };
 		AC7C286B216D846B000D562A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7C2869216D846B000D562A /* Main.storyboard */; };
@@ -18,8 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		394C0CD2532CFE9417B24F34 /* libPods-SampleAppUIWebView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleAppUIWebView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59BA4E8BB0D22B3DAAB2DBDC /* Pods-SampleAppUIWebView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppUIWebView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView.release.xcconfig"; sourceTree = "<group>"; };
 		AC7C2860216D846B000D562A /* SampleAppUIWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAppUIWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7C2863216D846B000D562A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC7C2864216D846B000D562A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -31,7 +28,6 @@
 		AC7C2872216D846F000D562A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC7C2874216D846F000D562A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7C2875216D846F000D562A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ED9F48AB4BB47B85E5DFC32A /* Pods-SampleAppUIWebView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppUIWebView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,37 +35,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67AA7736BBDE87033499024E /* libPods-SampleAppUIWebView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		47559AAD3ACCE3EAA1E4C7A3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				394C0CD2532CFE9417B24F34 /* libPods-SampleAppUIWebView.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4E97EF9A68768A551D39A108 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ED9F48AB4BB47B85E5DFC32A /* Pods-SampleAppUIWebView.debug.xcconfig */,
-				59BA4E8BB0D22B3DAAB2DBDC /* Pods-SampleAppUIWebView.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		AC7C2857216D846B000D562A = {
 			isa = PBXGroup;
 			children = (
 				AC7C2862216D846B000D562A /* SampleAppUIWebView */,
 				AC7C2861216D846B000D562A /* Products */,
-				4E97EF9A68768A551D39A108 /* Pods */,
-				47559AAD3ACCE3EAA1E4C7A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,11 +81,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC7C2879216D846F000D562A /* Build configuration list for PBXNativeTarget "SampleAppUIWebView" */;
 			buildPhases = (
-				ED2A581A5581C374C4756A75 /* [CP] Check Pods Manifest.lock */,
 				AC7C285C216D846B000D562A /* Sources */,
 				AC7C285D216D846B000D562A /* Frameworks */,
 				AC7C285E216D846B000D562A /* Resources */,
-				36113B4F5171E150FA5EDCB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,45 +138,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		36113B4F5171E150FA5EDCB7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView-frameworks.sh",
-				"${PODS_ROOT}/Minkasu2FA/Minkasu2FA.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Minkasu2FA.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED2A581A5581C374C4756A75 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SampleAppUIWebView-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC7C285C216D846B000D562A /* Sources */ = {
@@ -352,7 +287,6 @@
 		};
 		AC7C287A216D846F000D562A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED9F48AB4BB47B85E5DFC32A /* Pods-SampleAppUIWebView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +296,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SampleAppUIWebView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,7 +309,6 @@
 		};
 		AC7C287B216D846F000D562A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59BA4E8BB0D22B3DAAB2DBDC /* Pods-SampleAppUIWebView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -384,6 +318,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SampleAppUIWebView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
