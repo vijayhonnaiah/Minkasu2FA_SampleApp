@@ -18,7 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.minkasu.android.twofa.enums.MinkasuOperationType;
+import com.minkasu.android.twofa.enums.Minkasu2faOperationType;
 import com.minkasu.android.twofa.sdk.Minkasu2faSDK;
 
 import java.util.List;
@@ -97,20 +97,20 @@ public class MainActivity extends AppCompatActivity
         Menu nav_Menu = navigationView.getMenu();
 
         //Gets the list of Operations that is available according to the state of Minkasu 2FA SDK.
-        List<MinkasuOperationType> operationTypes =  Minkasu2faSDK.getMinkasuOperationTypes(getApplicationContext());
+        List<Minkasu2faOperationType> operationTypes =  Minkasu2faSDK.getMinkasu2faOperationTypes(getApplicationContext());
 
         nav_Menu.findItem(R.id.nav_change_pin).setVisible(false);
         nav_Menu.findItem(R.id.nav_enabledisablefinger).setVisible(false);
 
         for (int i = 0; i < operationTypes.size(); i++) {
-            if (operationTypes.get(i) == MinkasuOperationType.CHANGE_PAYPIN) {
+            if (operationTypes.get(i) == Minkasu2faOperationType.CHANGE_PAYPIN) {
                 nav_Menu.findItem(R.id.nav_change_pin).setVisible(true);
-            } else if (operationTypes.get(i) == MinkasuOperationType.DISABLE_FINGERPRINT) {
+            } else if (operationTypes.get(i) == Minkasu2faOperationType.DISABLE_FINGERPRINT) {
                 MenuItem item = nav_Menu.findItem(R.id.nav_enabledisablefinger).setVisible(true);
-                item.setTitle(MinkasuOperationType.valueOf(MinkasuOperationType.DISABLE_FINGERPRINT));
-            } else if (operationTypes.get(i) == MinkasuOperationType.ENABLE_FINGERPRINT) {
+                item.setTitle(Minkasu2faOperationType.valueOf(Minkasu2faOperationType.DISABLE_FINGERPRINT));
+            } else if (operationTypes.get(i) == Minkasu2faOperationType.ENABLE_FINGERPRINT) {
                 MenuItem item = nav_Menu.findItem(R.id.nav_enabledisablefinger).setVisible(true);
-                item.setTitle(MinkasuOperationType.valueOf(MinkasuOperationType.ENABLE_FINGERPRINT));
+                item.setTitle(Minkasu2faOperationType.valueOf(Minkasu2faOperationType.ENABLE_FINGERPRINT));
             }
         }
 
@@ -146,12 +146,12 @@ public class MainActivity extends AppCompatActivity
 
 
         if (id == R.id.nav_change_pin) {
-            performMKSDKAction(MinkasuOperationType.CHANGE_PAYPIN);
+            performMKSDKAction(Minkasu2faOperationType.CHANGE_PAYPIN);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             popAllFragmentsInStack();
         }else if (id == R.id.nav_enabledisablefinger) {
-            performMKSDKAction(MinkasuOperationType.ENABLE_FINGERPRINT);
+            performMKSDKAction(Minkasu2faOperationType.ENABLE_FINGERPRINT);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             popAllFragmentsInStack();
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity
         return fragment;
     }
 
-    public void performMKSDKAction (MinkasuOperationType operationType){
+    public void performMKSDKAction (Minkasu2faOperationType operationType){
         Minkasu2faSDK minkasu2faSDKInstance = null;
         try {
             //Creating Minkasu 2FA SDK object to perform the selected menu action.
