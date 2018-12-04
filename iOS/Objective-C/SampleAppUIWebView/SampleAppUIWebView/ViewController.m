@@ -13,7 +13,9 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    NSString *merchantCustomerId;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,6 +23,11 @@
     self.uiWebView = [[UIWebView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+150, self.view.frame.size.width, self.view.frame.size.height)];
     _uiWebView.delegate = self;
     [self.view addSubview:_uiWebView];
+    
+    [self.btnNetBanking.layer setCornerRadius:6.0];
+    [self.btnCreditDebit.layer setCornerRadius:6.0];
+    
+    merchantCustomerId = @"M_C001";
 }
 
 //****START Minkasu2FA Code***************
@@ -90,5 +97,64 @@
     NSURL *nsurl=[NSURL URLWithString:@"https://sandbox.minkasupay.com/demo/Welcome_to_Net.html?minkasu2FA=true"];
     NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
     [_uiWebView loadRequest:nsrequest];
+}
+
+- (IBAction)clickMenuOption:(id)sender {
+    NSMutableArray *minkasu2FAOpertions = [Minkasu2FA getAvailableMinkasu2FAOperations];
+    if([minkasu2FAOpertions count] > 0){
+        UIAlertController *menuOptionsActionSheet = [UIAlertController alertControllerWithTitle:nil message:@"Menu" preferredStyle:UIAlertControllerStyleActionSheet];
+        for (NSNumber *operation in minkasu2FAOpertions){
+            Minkasu2FACustomTheme *mkcolorTheme = [Minkasu2FACustomTheme new];
+            mkcolorTheme.navigationBarColor = UIColor.blueColor;
+            mkcolorTheme.navigationBarTextColor = UIColor.whiteColor;
+            mkcolorTheme.buttonBackgroundColor = UIColor.blueColor;
+            mkcolorTheme.buttonTextColor = UIColor.whiteColor;
+            
+            UIAlertAction *action = nil;
+            if(operation.intValue == MINKASU2FA_CHANGE_PAYPIN) {
+                action = [UIAlertAction
+                          actionWithTitle:@"Change PayPIN"
+                          style:UIAlertActionStyleDefault
+                          handler:^(UIAlertAction * action) {
+                              NSLog(@"Change PayPIN");
+                              //merchant_customer_id is a unique id associated with the currently logged in user.
+                              [Minkasu2FA performMinkasu2FAOperation:MINKASU2FA_CHANGE_PAYPIN merchantCustomerId:<merchant_customer_id> customTheme:mkcolorTheme];
+                          }];
+            } else if(operation.intValue == MINKASU2FA_ENABLE_BIOMETRY) {
+                action = [UIAlertAction
+                          actionWithTitle:@"Enable Touch ID"
+                          style:UIAlertActionStyleDefault
+                          handler:^(UIAlertAction * action) {
+                              NSLog(@"Enable Touch ID");
+                              //merchant_customer_id is a unique id associated with the currently logged in user.
+                              [Minkasu2FA performMinkasu2FAOperation:MINKASU2FA_ENABLE_BIOMETRY merchantCustomerId:<merchant_customer_id> customTheme:mkcolorTheme];
+                          }];
+            } else if(operation.intValue == MINKASU2FA_DISABLE_BIOMETRY) {
+                action = [UIAlertAction
+                          actionWithTitle:@"Disable Touch ID"
+                          style:UIAlertActionStyleDefault
+                          handler:^(UIAlertAction * action) {
+                              NSLog(@"Disable Touch ID");
+                              //merchant_customer_id is a unique id associated with the currently logged in user.
+                              [Minkasu2FA performMinkasu2FAOperation:MINKASU2FA_DISABLE_BIOMETRY merchantCustomerId:<merchant_customer_id> customTheme:mkcolorTheme];
+                          }];
+            }
+            [menuOptionsActionSheet addAction:action];
+        }
+        
+        [menuOptionsActionSheet addAction:[UIAlertAction
+                                           actionWithTitle:@"Cancel"
+                                           style:UIAlertActionStyleCancel
+                                           handler:^(UIAlertAction * action) {
+                                               [self dismissViewControllerAnimated:YES completion:nil];
+                                           }]];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            [menuOptionsActionSheet popoverPresentationController].barButtonItem = self.btnItemMenuOption;
+        }
+        
+        [self presentViewController:menuOptionsActionSheet animated:YES completion:nil];
+    }
 }
 @end

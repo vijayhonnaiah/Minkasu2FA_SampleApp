@@ -14,9 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnNetBanking;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreditDebit;
 @property ( nonatomic)  WKWebView *wkWebView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnItemMenuOption;
 
 - (IBAction)clickNetBanking:(id)sender;
 - (IBAction)clickCreditDebit:(id)sender;
+- (IBAction)clickMenuOption:(id)sender;
 
 @end
 
