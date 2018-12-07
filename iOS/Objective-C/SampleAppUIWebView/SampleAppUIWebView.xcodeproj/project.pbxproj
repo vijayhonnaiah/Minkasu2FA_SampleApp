@@ -14,9 +14,11 @@
 		AC7C2870216D846F000D562A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC7C286F216D846F000D562A /* Assets.xcassets */; };
 		AC7C2873216D846F000D562A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7C2871216D846F000D562A /* LaunchScreen.storyboard */; };
 		AC7C2876216D846F000D562A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7C2875216D846F000D562A /* main.m */; };
+		CA5837C5035119F343E967A0 /* libPods-SampleAppUIWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3E7EF415DA9C246A7BD238 /* libPods-SampleAppUIWebView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1BC4F191CD159AC486AE60 /* Pods-SampleAppUIWebView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppUIWebView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView.debug.xcconfig"; sourceTree = "<group>"; };
 		AC7C2860216D846B000D562A /* SampleAppUIWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAppUIWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7C2863216D846B000D562A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC7C2864216D846B000D562A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		AC7C2872216D846F000D562A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC7C2874216D846F000D562A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7C2875216D846F000D562A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B610A050788072C221600766 /* Pods-SampleAppUIWebView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleAppUIWebView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView.release.xcconfig"; sourceTree = "<group>"; };
+		EB3E7EF415DA9C246A7BD238 /* libPods-SampleAppUIWebView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleAppUIWebView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5837C5035119F343E967A0 /* libPods-SampleAppUIWebView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CC1ACCD44D64B6C57922E3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB3E7EF415DA9C246A7BD238 /* libPods-SampleAppUIWebView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC7C2857216D846B000D562A = {
 			isa = PBXGroup;
 			children = (
 				AC7C2862216D846B000D562A /* SampleAppUIWebView */,
 				AC7C2861216D846B000D562A /* Products */,
+				E97095981DBA945E1C57BD62 /* Pods */,
+				3CC1ACCD44D64B6C57922E3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +89,15 @@
 			path = SampleAppUIWebView;
 			sourceTree = "<group>";
 		};
+		E97095981DBA945E1C57BD62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC1BC4F191CD159AC486AE60 /* Pods-SampleAppUIWebView.debug.xcconfig */,
+				B610A050788072C221600766 /* Pods-SampleAppUIWebView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC7C2879216D846F000D562A /* Build configuration list for PBXNativeTarget "SampleAppUIWebView" */;
 			buildPhases = (
+				1381DD1EF39AA3A049F6F90A /* [CP] Check Pods Manifest.lock */,
 				AC7C285C216D846B000D562A /* Sources */,
 				AC7C285D216D846B000D562A /* Frameworks */,
 				AC7C285E216D846B000D562A /* Resources */,
+				20C6AABF4DA3D0A48D867B99 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +164,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1381DD1EF39AA3A049F6F90A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SampleAppUIWebView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20C6AABF4DA3D0A48D867B99 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView-frameworks.sh",
+				"${PODS_ROOT}/Minkasu2FA/Minkasu2FA.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Minkasu2FA.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleAppUIWebView/Pods-SampleAppUIWebView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC7C285C216D846B000D562A /* Sources */ = {
@@ -287,6 +352,7 @@
 		};
 		AC7C287A216D846F000D562A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC1BC4F191CD159AC486AE60 /* Pods-SampleAppUIWebView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,6 +375,7 @@
 		};
 		AC7C287B216D846F000D562A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B610A050788072C221600766 /* Pods-SampleAppUIWebView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
