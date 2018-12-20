@@ -60,11 +60,11 @@ Add NSFaceIDUsageDescription to Info.plist
     Minkasu2FACustomerInfo *customer = [Minkasu2FACustomerInfo new];
     customer.firstName = @"TestFirstName";
     customer.lastName = @"TestLastName";
-    customer.email = @"test@asd.com";
+    customer.email = @"test@xyz.com";
     customer.phone = @"+919876543210";
 
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
-    address.line1 = @"123 Test way";
+    address.line1 = @"123 Test Way";
     address.line2 = @"Test Apartments";
     address.city = @"Mumbai";
     address.state = @"Maharashtra";
@@ -119,3 +119,38 @@ _uiWebView.delegate = self;
 ```
 
 - Initialize the SDK by calling ```[self initMinkasu2FA];``` before the Payment is initiated.
+
+## Retrieving Operations
+
+Following is the list of Minkasu 2FA Operations available.
+
+Typedef ```Minkasu2FAOperationType```
+
+| OPERATION TYPE  | Type | Description |
+| ------------- | ------------- | ------------- |
+| CHANGE_PIN  | Minkasu2FAOperationType  | Change pin operation to change the existing pin to a new one |
+| ENABLE_BIOMETRY  | Minkasu2FAOperationType  | Enable biometry operation |
+| DISABLE_BIOMETRY  | Minkasu2FAOperationType  | Disable biometry operation |
+
+To retrieve the list of operations, execute the following code to get the current list of operations available depending on the state of the Minkasu2FA SDK.
+
+```Objective-C
+NSMutableArray *minkasu2FAOperations = [Minkasu2FA getAvailableMinkasu2FAOperations];
+```
+
+## Implementing Operations
+
+Implement the following code to execute an operation.
+
+```Objective-C
+//Use this to set custom color theme
+Minkasu2FACustomTheme *mkcolorTheme = [Minkasu2FACustomTheme new];
+mkcolorTheme.navigationBarColor = UIColor.blueColor;
+mkcolorTheme.navigationBarTextColor = UIColor.whiteColor;
+mkcolorTheme.buttonBackgroundColor = UIColor.blueColor;
+mkcolorTheme.buttonTextColor = UIColor.whiteColor;
+
+[Minkasu2FA performMinkasu2FAOperation:<Minkasu2faOperationType> merchantCustomerId:<merchant_customer_id> customTheme:mkcolorTheme];
+```
+
+Please make sure the merchant_customer_id is a unique id associated with the currently logged in user, and is the same id used in the payment flow.
