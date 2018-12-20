@@ -60,11 +60,11 @@ Add NSFaceIDUsageDescription to Info.plist
     Minkasu2FACustomerInfo *customer = [Minkasu2FACustomerInfo new];
     customer.firstName = @"TestFirstName";
     customer.lastName = @"TestLastName";
-    customer.email = @"test@asd.com";
+    customer.email = @"test@xyz.com";
     customer.phone = @"+919876543210";
 
     Minkasu2FAAddress *address = [Minkasu2FAAddress new];
-    address.line1 = @"123 Test way";
+    address.line1 = @"123 Test Way";
     address.line2 = @"Test Apartments";
     address.city = @"Mumbai";
     address.state = @"Maharashtra";
@@ -124,13 +124,13 @@ _uiWebView.delegate = self;
 
 Following is the list of Minkasu 2FA Operations available.
 
-Typedef ```Minkasu2faOperationType```
+Typedef ```Minkasu2FAOperationType```
 
 | OPERATION TYPE  | Type | Description |
 | ------------- | ------------- | ------------- |
-| CHANGE_PIN  | Minkasu2faOperationType  | Change pin operation to change the existing pin to a new one |
-| ENABLE_FINGERPRINT  | Minkasu2faOperationType  | Enable fingerprint operation |
-| DISABLE_FINGERPRINT  | Minkasu2faOperationType  | Disable fingerprint operation |
+| CHANGE_PIN  | Minkasu2FAOperationType  | Change pin operation to change the existing pin to a new one |
+| ENABLE_BIOMETRY  | Minkasu2FAOperationType  | Enable biometry operation |
+| DISABLE_BIOMETRY  | Minkasu2FAOperationType  | Disable biometry operation |
 
 To retrieve the list of operations, execute the following code to get the current list of operations available depending on the state of the Minkasu2FA SDK.
 
